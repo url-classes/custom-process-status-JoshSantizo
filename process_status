@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <time.h>
+
+        int main(){
+                printf("\n");
+                printf("Tipo de Proceso         PID     PPID    TIME\n\n");
+
+                for (int x=1; x<3; x++) {
+                        int fork_result;
+                        time_t t;
+                        fork_result = fork();
+                        time(&t);
+                        printf("Proceso de Sistema      %d      %d      %s\n", getpid(), getppid(), ctime(&t));
+                }
+        }
